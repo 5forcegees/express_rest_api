@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>E2E Chart</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://rawgit.com/newrelic-forks/d3-plugins-sankey/master/sankey.js"></script>
+    <script src="https://rawgit.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
+    <script src="https://rawgit.com/q-m/d3.chart.sankey/master/d3.chart.sankey.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body onload="getChart()">
+<section class="webdesigntuts-workshop">
+    <span>
+        <input id="field_name" placeholder="Field Name">
+        <input class="secondary-input" id="field_values" placeholder="SC1001,SC1012">
+        <button onclick="getChart()">Submit</button>
+    </span>
+    <div class="chartContainer">
+        <div class="chartSubContainer">
+            <div id="chart"></div>
+        </div>
+    </div>
+</section>
+<script src="sankey.js"></script>
+
+</body>
+</html>
