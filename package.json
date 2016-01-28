@@ -1,0 +1,21 @@
+{
+  "name": "node_express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mysql": "^2.10.2",
+    "sequelize": "^3.18.0",
+    "body-parser": "~1.0.1"
+  },
+  "database_name": "visualizations",
+  "database_type": "mysql",
+  "database_user": "vizdoctor",
+  "database_pw": ""
+}
