@@ -112,8 +112,8 @@ function getChart() {
   if (fieldName !== '' && fieldValueStr !== '') {
     var fieldValues = fieldValueStr.split(',');
     console.log(fieldName, fieldValues);
-    xmlhttp.open('GET', 'https://rawgit.com/q-m/d3.chart.sankey/master/example/data/product.json', true);
-    //xmlhttp.open('GET', 'http://127.01.1.12:9202/?field_name=' + fieldName + '&field_value=' + fieldValuesStr + '&sankey=true', true);
+    //xmlhttp.open('GET', 'https://rawgit.com/q-m/d3.chart.sankey/master/example/data/product.json', true); default demo
+    xmlhttp.open('GET', 'http://localhost:8080/api?field_name=' + fieldName + '&field_value=' + fieldValueStr + '&sankey=true', true);
     xmlhttp.send();
   } else {
     loadChart(defaultData);
