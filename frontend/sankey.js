@@ -49,6 +49,10 @@ var defaultData = {
 };
 
 function loadChart(json) {
+  var link_count = Object.keys(json.links).length;
+  var desired_height = (500 > +link_count * 10) ? 500: +link_count * 10  ;
+  $('#chart').height(desired_height);
+
   var chart = d3.select('#chart').append('svg').chart('Sankey.Path');
   chart
     .name(label)
@@ -61,7 +65,7 @@ function loadChart(json) {
     .nodeWidth(15)
     .nodePadding(10)
     .spread(true)
-    .iterations(0)
+    .iterations(30)
     .draw(json);
   function label(node) {
     return node.name.replace(/\s*\(.*?\)$/, '');

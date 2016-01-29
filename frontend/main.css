@@ -3,29 +3,36 @@
 body {
     background-color: #151515;
 }
+
 #chart {
     height: 500px;
     font: 13px sans-serif;
 }
+
 .node rect {
     fill-opacity: .9;
     shape-rendering: crispEdges;
     stroke-width: 0;
 }
+
 .node text {
     text-shadow: 0 1px 0 #fff;
 }
+
 .link {
     fill: none;
     stroke: #000;
     stroke-opacity: .2;
 }
+
 .chartContainer {
     padding: 25px;
 }
+
 .chartSubContainer {
     background-color: white;
 }
+
 @import url(http://fonts.googleapis.com/css?family=Cabin:400);
 
 .webdesigntuts-workshop {
@@ -73,7 +80,8 @@ body {
     z-index: 1;
 }
 
-.webdesigntuts-workshop input {
+.webdesigntuts-workshop input,
+.webdesigntuts-workshop select {
     background: #222;
     background: linear-gradient(#333, #222);
     border: 1px solid #444;
@@ -89,14 +97,16 @@ body {
     margin: 0;
     padding: 0 10px;
     text-shadow: 0 -1px 0 #000;
-    width: 200px;
+    width: 300px;
 }
 
-input#field_values {
+input#field_values,
+select#field_name {
     border-radius: 0px !important;
 }
 
-.ie .webdesigntuts-workshop input {
+.ie .webdesigntuts-workshop input,
+.ie .webdesigntuts-workshop select {
     line-height: 40px;
 }
 
@@ -113,7 +123,7 @@ input#field_values {
     background: #222922;
     background: linear-gradient(#333933, #222922);
     border-color: #393;
-    box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
+    box-shadow: 0 0 5px rgba(0, 255, 0, .2), inset 0 0 5px rgba(0, 255, 0, .1), 0 2px 0 #000;
     color: #efe;
     outline: none;
 }
@@ -167,11 +177,11 @@ input#field_values {
 @keyframes glow {
     0% {
         border-color: #393;
-        box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
+        box-shadow: 0 0 5px rgba(0, 255, 0, .2), inset 0 0 5px rgba(0, 255, 0, .1), 0 2px 0 #000;
     }
     100% {
         border-color: #6f6;
-        box-shadow: 0 0 20px rgba(0,255,0,.6), inset 0 0 10px rgba(0,255,0,.4), 0 2px 0 #000;
+        box-shadow: 0 0 20px rgba(0, 255, 0, .6), inset 0 0 10px rgba(0, 255, 0, .4), 0 2px 0 #000;
     }
 }
 
