@@ -20,12 +20,30 @@ var defaultData = {
     {'name': 'getLineofServiceAddress', 'id': 'getLineofServiceAddress'},
     {'name': 'N/A', 'id': 'N/A'},
     {'name': 'CustomerDetailsWSIL.getCustomerDetails', 'id': 'CustomerDetailsWSIL.getCustomerDetails'},
-    {'name': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails', 'id': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails'},
-    {'name': 'LineOfServiceDetailsWSIL.getLineOfServiceDetails', 'id': 'LineOfServiceDetailsWSIL.getLineOfServiceDetails'},
-    {'name': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails', 'id': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails'},
-    {'name': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails', 'id': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails'},
-    {'name': 'financialAccountDetailsWSIL.getAccountDeviceDetails', 'id': 'financialAccountDetailsWSIL.getAccountDeviceDetails'},
-    {'name': 'LineOfServiceDetailsWSIL.getLineOfServiceDetails', 'id': 'LineOfServiceDetailsWSIL.getLineOfServiceDetails'}
+    {
+      'name': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails',
+      'id': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails'
+    },
+    {
+      'name': 'LineOfServiceDetailsWSIL.getLineOfServiceDetails',
+      'id': 'LineOfServiceDetailsWSIL.getLineOfServiceDetails'
+    },
+    {
+      'name': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails',
+      'id': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails'
+    },
+    {
+      'name': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails',
+      'id': 'FinancialAccountDetailsWSIL.getFinancialAccountDetails'
+    },
+    {
+      'name': 'financialAccountDetailsWSIL.getAccountDeviceDetails',
+      'id': 'financialAccountDetailsWSIL.getAccountDeviceDetails'
+    },
+    {
+      'name': 'LineOfServiceDetailsWSIL.getLineOfServiceDetails',
+      'id': 'LineOfServiceDetailsWSIL.getLineOfServiceDetails'
+    }
   ],
   'links': [
     {'source': 0, 'value': 0.00007, 'target': 1},
@@ -50,7 +68,7 @@ var defaultData = {
 
 function loadChart(json) {
   var link_count = Object.keys(json.links).length;
-  var desired_height = (500 > +link_count * 10) ? 500: +link_count * 10  ;
+  var desired_height = (500 > +link_count * 10) ? 500 : +link_count * 10;
   $('#chart').height(desired_height);
 
   var chart = d3.select('#chart').append('svg').chart('Sankey.Path');
