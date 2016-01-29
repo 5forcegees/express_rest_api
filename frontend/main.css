@@ -3,7 +3,7 @@
 body {
     padding: 10px;
     min-width: 600px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
     background-color: #151515;
 }
@@ -77,7 +77,9 @@ body {
     z-index: 1;
 }
 
-.webdesigntuts-workshop input {
+.webdesigntuts-workshop input,
+.webdesigntuts-workshop select
+{
     background: #222;
     background: linear-gradient(#333, #222);
     border: 1px solid #444;
@@ -93,14 +95,16 @@ body {
     margin: 0;
     padding: 0 10px;
     text-shadow: 0 -1px 0 #000;
-    width: 200px;
+    width: 300px;
 }
 
-input#field_values {
+input#field_values,
+select#field_name {
     border-radius: 0px !important;
 }
 
-.ie .webdesigntuts-workshop input {
+.ie .webdesigntuts-workshop input,
+.ie .webdesigntuts-workshop select {
     line-height: 40px;
 }
 

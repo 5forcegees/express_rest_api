@@ -5,34 +5,6 @@ var sankeyData = require('./app/getSankeyData');
 
 var returnme = {};
 
-//var Sequelize = require('sequelize');
-//
-//var seq = new Sequelize(pkg.database_name, pkg.database_user, pkg.database_pw, {
-//    host: 'localhost',
-//    dialect: 'mysql'
-//});
-//
-//// load models, allows for adding models later if needed, just add them in app/models and then to this array
-//var models = [
-//    'whole_sheet'
-//];
-//
-//models.forEach(function(model) {
-//    module.exports[model] = seq.import(__dirname + '/app/models/' + model);
-//});
-//
-//// export connection
-//module.exports.seq = seq;
-//
-//
-//app.set('models', require(__dirname + '/app/models/api.js'));
-//
-////seq.({
-////    where: { screen: "SC1001"}
-////});
-//
-//var whole_sheet = app.get('models').whole_sheet;
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -45,16 +17,23 @@ router.get('/', function(req, res) {
     var field_name = req.param('field_name');
     var field_value = req.param('field_value');
     var sankey = req.param('sankey');
+    res.setHeader("Access-Control-Allow-Origin", "*");
 
     if (sankey == 'true') {
 
-        returnme = sankeyData.getSankeyData(field_name, field_value, function(returnme){
+        returnme = sankeyData.getSankeyData(field_name, field_value, function(returnme, con, nodes, ret_nodes, links, ret_links){
 
             console.log('returnme: ');
             console.log(returnme);
             console.log('/returnme\n ');
 
             res.json(returnme);
+            con.end();
+            //blank out the arrays so each call gets an empty starting array
+            nodes.length = 0;
+            ret_nodes.length = 0;
+            links.length = 0;
+            ret_links.length = 0;
         });
     }
 });
