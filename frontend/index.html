@@ -12,15 +12,18 @@
 </head>
 <body onload="getChart()">
 <section class="webdesigntuts-workshop">
+    <h3>
+       API Mapping Sankey
+    </h3>
     <span>
-        <select id="field_name">
-            <option value="screen_name" selected>Screen Name (Ex: 1001 or Manage Profile)</option>
+        <select id="field_name" class="secondary-input">
+            <option value="screen_name" selected>Screen Name (Ex: 1001,1012 or Manage Profile)</option>
             <option value="facade_api">Facade API (Ex: 348 or getGeneralProfile)</option>
             <option value="core_api">Core Api (Ex: getFinancial or CancelOrder)</option>
             <option value="e_wsil">E WSIL (Ex: CustomerDetailsWSIL or Case)</option>
             <option value="l2">L2 (Ex: Account or Buy or Pay)</option>
         </select>
-        <input class="secondary-input" id="field_values" placeholder="SC1001,SC1012">
+        <input class="secondary-input" id="field_values" placeholder="SC1001">
         <button onclick="getChart()">Submit</button>
     </span>
     <div class="chartContainer">

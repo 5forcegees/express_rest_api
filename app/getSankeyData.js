@@ -4,8 +4,6 @@ var mysql = require("mysql");
 var returnme = {}, nodes = [], ret_nodes = [], links = [], ret_links = [];
 
 module.exports.getSankeyData = function (field, field_values, callback) {
-  console.log('got field ' + field);
-  console.log('and values ' + field_values);
   var con = mysql.createConnection({
     host: "localhost",
     user: pkg.database_user,
@@ -18,11 +16,13 @@ module.exports.getSankeyData = function (field, field_values, callback) {
       console.log('Error connecting to Db');
     } else {
       var query_array = field_values.split(",");
+      //trim the field values strings
+      query_array.forEach(function(field_value){
+        query_array[query_array.indexOf(field_value)] = field_value.trim();
+      });
+
       var query_string = 'select screen_name, facade_api, core_api, e_wsil from whole_sheet where ' + field + ' LIKE ';
       query_string += '\'%' + query_array.join('%\' OR ' + field + ' LIKE \'%') + '%\'';
-
-      console.log('starting query:');
-      console.log(query_string);
 
       con.query(query_string, function (err, rows) {
 
@@ -70,7 +70,6 @@ module.exports.getSankeyData = function (field, field_values, callback) {
 
           });
           returnme = {nodes: ret_nodes, links: ret_links};
-
 
           callback(returnme, con, nodes, ret_nodes, links, ret_links);
         }

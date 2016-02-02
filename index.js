@@ -23,10 +23,6 @@ router.get('/', function (req, res) {
 
     returnme = sankeyData.getSankeyData(field_name, field_value, function (returnme, con, nodes, ret_nodes, links, ret_links) {
 
-      console.log('returnme: ');
-      console.log(returnme);
-      console.log('/returnme\n ');
-
       res.json(returnme);
       con.end();
       //blank out the arrays so each call gets an empty starting array
@@ -46,4 +42,4 @@ app.use('/api', router);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);
+

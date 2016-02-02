@@ -108,13 +108,6 @@ function loadChart(json) {
   }
 }
 
-/*function updateChart(json) {
- var chart = d3.select('#chart').transition();
- chart.select('.chart')
- .duration(750)
- .attr('draw', json);
- }*/
-
 function getChart() {
   var fieldName = document.getElementById('field_name').value;
   var fieldValueStr = document.getElementById('field_values').value;
@@ -132,9 +125,6 @@ function getChart() {
   };
 
   if (fieldName !== '' && fieldValueStr !== '') {
-    var fieldValues = fieldValueStr.split(',');
-    console.log(fieldName, fieldValues);
-    //xmlhttp.open('GET', 'https://rawgit.com/q-m/d3.chart.sankey/master/example/data/product.json', true); default demo
     xmlhttp.open('GET', 'http://localhost:8080/api?field_name=' + fieldName + '&field_value=' + fieldValueStr + '&sankey=true', true);
     xmlhttp.send();
   } else {
