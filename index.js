@@ -1,4 +1,5 @@
 var express = require('express');        // call express
+var http = require('http');
 var app = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var sankeyData = require('./app/getSankeyData');
@@ -9,7 +10,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
-
 var router = express.Router();
 
 // (accessed at GET http://localhost:8080/api)
@@ -18,7 +18,7 @@ router.get('/', function (req, res) {
   var field_value = req.param('field_value');
   var sankey = req.param('sankey');
   res.setHeader("Access-Control-Allow-Origin", "*");
-
+  console.log('got request ' + req.originalUrl);
   if (sankey == 'true') {
 
     returnme = sankeyData.getSankeyData(field_name, field_value, function (returnme, con, nodes, ret_nodes, links, ret_links) {
@@ -41,5 +41,9 @@ app.use('/api', router);
 
 // START THE SERVER
 // =============================================================================
-app.listen(port);
+http.createServer(app).listen(port, function () {
+  console.log("Server ready at port: "+port);
+});
+
+//app.listen(port);
 

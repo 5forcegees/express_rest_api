@@ -9,13 +9,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "~1.0.1",
     "express": "^4.13.4",
-    "mysql": "^2.10.2",
-    "sequelize": "^3.18.0",
-    "body-parser": "~1.0.1"
+    "forever": "^0.15.1",
+    "mysql": "^2.10.2"
   },
   "database_name": "visualizations",
+  "database_host": "mysql-tech2web.cmvubf6cpu8u.us-west-2.rds.amazonaws.com",
   "database_type": "mysql",
-  "database_user": "vizdoctor",
-  "database_pw": ""
+  "database_user": "rdsmaster",
+  "database_pw": "rdsmaster",
+  "devDependencies": {
+    "forever": "^0.15.1"
+  }
 }

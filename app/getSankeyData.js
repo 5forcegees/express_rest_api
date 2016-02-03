@@ -5,7 +5,7 @@ var returnme = {}, nodes = [], ret_nodes = [], links = [], ret_links = [];
 
 module.exports.getSankeyData = function (field, field_values, callback) {
   var con = mysql.createConnection({
-    host: "localhost",
+    host: pkg.database_host,
     user: pkg.database_user,
     password: pkg.database_pw,
     database: pkg.database_name
