@@ -43,7 +43,7 @@ body {
     width: 100%;
 }
 
-.webdesigntuts-workshop:before,
+/*.webdesigntuts-workshop:before,
 .webdesigntuts-workshop:after {
     content: '';
     display: block;
@@ -52,7 +52,7 @@ body {
     margin: 0 0 0 -400px;
     position: absolute;
     width: 800px;
-}
+}*/
 
 h3 {
     color: white;
@@ -76,11 +76,18 @@ h3 {
     border: 1px solid #000;
     box-shadow: inset 0 0 0 1px #272727;
     display: inline-block;
-    font-size: 0px;
+    /*font-size: 0px;*/
+    color: #860E0E;
     margin: 0px auto 0;
     padding: 20px;
     position: relative;
     z-index: 1;
+}
+
+select#field_name {
+    border-radius: 5px 0 0 5px;!important;
+    -webkit-appearance: none;
+    height: 44px !important;
 }
 
 .webdesigntuts-workshop input,
