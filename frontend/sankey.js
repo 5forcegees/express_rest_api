@@ -338,20 +338,6 @@ function loadChart(json, fieldName, fieldValueStr) {
   }
 
   if (number_nodes_returned !== 0) {
-    var chart = d3.select('#chart').append('svg').chart('Sankey.Path');
-    chart
-      .name(label)
-      .colorNodes(function (name, node) {
-        return color(node, 1) || colors.fallback;
-      })
-      .colorLinks(function (link) {
-        return color(link.source, 4) || color(link.target, 1) || colors.fallback;
-      })
-      .nodeWidth(15)
-      .nodePadding(10)
-      .spread(true)
-      .iterations(30)
-      .draw(json);
     function label(node) {
       return node.name.replace(/\s*\(.*?\)$/, '');
     }
@@ -368,6 +354,20 @@ function loadChart(json, fieldName, fieldValueStr) {
         return null;
       }
     }
+    var chart = d3.select('#chart').append('svg').chart('Sankey.Path');
+    chart
+      .name(label)
+      .colorNodes(function (name, node) {
+        return color(node, 1) || colors.fallback;
+      })
+      .colorLinks(function (link) {
+        return color(link.source, 4) || color(link.target, 1) || colors.fallback;
+      })
+      .nodeWidth(15)
+      .nodePadding(10)
+      .spread(true)
+      .iterations(30)
+      .draw(json);
 
     if (document.getElementById('chart').childNodes.length > 1) { // Remove old chart
       var chart = document.getElementById('chart');
