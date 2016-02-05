@@ -34,6 +34,23 @@ router.get('/', function (req, res) {
   }
 });
 
+router.post('/results', function(req, res) {
+  var body = req.body;
+  console.log("body: ", body);
+
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  sankeyData.insertResultsData(req.body, function(err, result) {
+    if (result) {
+      console.log(result);
+      res.status(200).send(result); 
+    } else {
+      console.log(err);
+      res.status(500).send(err); 
+    }
+  })
+  
+});
+
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);

@@ -3,14 +3,15 @@ var mysql = require("mysql");
 
 var returnme = {}, nodes = [], ret_nodes = [], links = [], ret_links = [];
 
-module.exports.getSankeyData = function (field, field_values, callback) {
-  var con = mysql.createConnection({
+var con = mysql.createConnection({
     host: pkg.database_host,
     user: pkg.database_user,
     password: pkg.database_pw,
     database: pkg.database_name
   });
 
+module.exports.getSankeyData = function (field, field_values, callback) {
+  
   con.connect(function (err) {
     if (err) {
       console.log('Error connecting to Db');
@@ -78,4 +79,12 @@ module.exports.getSankeyData = function (field, field_values, callback) {
   });
 
 
+};
+
+module.exports.insertResultsData = function(data, callback) {
+
+  var query = con.query('INSERT INTO api_connect SET ?', data, function(err, result) {    
+    callback(err, result);
+  });
+  console.log(query.sql);
 };
