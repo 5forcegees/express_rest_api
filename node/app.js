@@ -2,7 +2,7 @@ var express = require('express');        // call express
 var http = require('http');
 var app = express();                 // define our app using express
 var bodyParser = require('body-parser');
-var sankeyData = require('./app/getSankeyData');
+var sankeyData = require('./modules/getSankeyData');
 
 var returnme = {};
 
@@ -32,6 +32,23 @@ router.get('/', function (req, res) {
       ret_links.length = 0;
     });
   }
+});
+
+router.post('/results', function(req, res) {
+  var body = req.body;
+  console.log("body: ", body);
+
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  sankeyData.insertResultsData(req.body, function(err, result) {
+    if (result) {
+      console.log(result);
+      res.status(200).send(result); 
+    } else {
+      console.log(err);
+      res.status(500).send(err); 
+    }
+  })
+  
 });
 
 // REGISTER OUR ROUTES -------------------------------

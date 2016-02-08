@@ -133,7 +133,7 @@
                       return 'link'
                     } else {
                       //return 'link error'
-                      return link
+                      return 'link'
                     }
                   })
                   .style("stroke", colorLinks)

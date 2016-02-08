@@ -413,5 +413,3 @@ $(document).keypress(function(e) {
     getChart();
   }
 });
-
-
