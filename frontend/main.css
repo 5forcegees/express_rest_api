@@ -26,7 +26,7 @@ body {
 }
 
 .chartContainer {
-    padding: 25px;
+    padding: 0px;
 }
 
 .chartSubContainer {
@@ -79,7 +79,7 @@ h3 {
     /*font-size: 0px;*/
     color: #860E0E;
     margin: 0px auto 0;
-    padding: 20px;
+    padding: 8px;
     position: relative;
     z-index: 1;
 }
@@ -196,5 +196,32 @@ select#field_name {
         border-color: #6f6;
         box-shadow: 0 0 20px rgba(0, 255, 0, .6), inset 0 0 10px rgba(0, 255, 0, .4), 0 2px 0 #000;
     }
+}
+
+path.error {
+    -webkit-animation-name: glow-blue;
+    -webkit-animation-duration: 0.75s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
+
+    animation-name: glow-blue;
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+
+    -moz-animation: none;
+    stroke-opacity: 0.5 !important;
+}
+
+@-webkit-keyframes glow-blue {
+    0% { stroke: hsl(0, 100%, 1%); }
+    100% { stroke: hsl(352, 100%, 45%); }
+}
+
+@keyframes glow-blue {
+    0% { stroke: hsl(0, 100%, 1%); }
+    100% { stroke: hsl(352, 100%, 45%); }
 }
 
