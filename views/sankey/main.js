@@ -320,9 +320,6 @@ var defaultData = {
 };
 
 function loadChart(json, fieldName, fieldValueStr) {
-  var link_count = Object.keys(json.links).length;
-  var desired_height = (500 > +link_count * 10) ? 500 : +link_count * 10;
-  $('#chart').height(desired_height);
 
   if (fieldName != '' && fieldValueStr != '') {
     var number_nodes_returned = Object.keys(json.nodes).length;
@@ -331,6 +328,7 @@ function loadChart(json, fieldName, fieldValueStr) {
       if (number_nodes_returned > 0) {
         alertify.notify('Your search for ' + fieldName.value + ':' + fieldValueStr +
           ' found ' + number_nodes_returned + ' APIs.', 'success', 5, function () {
+
           console.log('dismissed');
         });
       }
@@ -355,6 +353,9 @@ function loadChart(json, fieldName, fieldValueStr) {
       }
     }
 
+    var link_count = Object.keys(json.links).length;
+    var desired_height = (500 > +link_count * 10) ? 500 : +link_count * 10;
+    $('#chart').height(desired_height);
     var chart = d3.select('#chart').append('svg').chart('Sankey.Path');
     chart
       .name(label)
@@ -373,6 +374,7 @@ function loadChart(json, fieldName, fieldValueStr) {
     if (document.getElementById('chart').childNodes.length > 1) { // Remove old chart
       var chart = document.getElementById('chart');
       chart.removeChild(chart.childNodes[0]);
+
     }
   } else {
     alertify.notify('No API\'s found with those parameters.', 'error', 5, function () {
