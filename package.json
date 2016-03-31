@@ -14,11 +14,11 @@
     "forever": "^0.15.1",
     "mysql": "^2.10.2"
   },
-  "database_name": "visualizations",
-  "database_host": "mysql-tech2web.cmvubf6cpu8u.us-west-2.rds.amazonaws.com",
-  "database_type": "mysql",
-  "database_user": "rdsmaster",
-  "database_pw": "rdsmaster",
+  "database_name": "",
+  "database_host": "",
+  "database_type": "",
+  "database_user": "",
+  "database_pw": "",
   "devDependencies": {
     "forever": "^0.15.1"
   }
